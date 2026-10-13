@@ -1,0 +1,13 @@
+{
+  "name": "biomaze-salescenter-downloader",
+  "version": "0.4.1",
+  "private": true,
+  "description": "Personal Chrome extension for Biomaze and Sales Center 24 video downloads, queues and schedules.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/queue-core.test.cjs",
+    "test:media": "node tests/mp4-duration.local.cjs",
+    "package": "powershell -NoProfile -File scripts/package.ps1"
+  }
+}

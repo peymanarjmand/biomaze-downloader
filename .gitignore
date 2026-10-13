@@ -1,0 +1,19 @@
+# Local migration archive: videos, browser profiles, HARs, fixtures, old builds.
+/local/
+/dist/
+/node_modules/
+/coverage/
+/test-results/
+/playwright-report/
+.env
+.env.*
+!.env.example
+*.har
+*.mp4
+*.mkv
+*.zip
+*.log
+*.crx
+*.pem
+Thumbs.db
+.DS_Store

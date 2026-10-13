@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "دانلودر شخصی ماز و Sales Center 24",
+  "version": "0.4.1",
+  "description": "دانلود MP4، صف و زمان‌بندی شبانه برای ویدیوهای ماز و Sales Center 24",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "storage",
+    "alarms",
+    "power"
+  ],
+  "host_permissions": [
+    "https://biomaze.ir/*",
+    "https://*.biomaze.ir/*",
+    "https://salescenter24.com/*",
+    "https://stream.waterse.ir/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "دانلود ویدیو · ماز و Sales Center 24"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://biomaze.ir/*",
+        "https://*.biomaze.ir/*",
+        "https://salescenter24.com/*",
+        "https://stream.waterse.ir/*"
+      ],
+      "js": [
+        "sites.js",
+        "page.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://biomaze.ir/*",
+        "https://*.biomaze.ir/*",
+        "https://salescenter24.com/*"
+      ],
+      "js": [
+        "sites.js",
+        "vendor/mux.min.js",
+        "mp4-timing.js",
+        "writer.js",
+        "save.js",
+        "queue-core.js",
+        "panel.js"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ]
+}
